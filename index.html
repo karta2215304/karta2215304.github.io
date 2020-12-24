@@ -1,55 +1,394 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
-    
-    <title>Document</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> SaoirseLee's Website </title>
+    <link rel="icon shortcut" href="./img/未命名-1-01.png">
+    <!-- Bootstrap官方網站 https://getbootstrap.com/ -->
+    <!-- animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <!-- 連結Bootstrap.min.css -->
+    <!-- 客製化Bootstrap CSS -->
+    <link rel="stylesheet" href="./scss/bootstrap.css">
+    <!-- 使用font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+        integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <!-- 使用style.css -->
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Great+Vibes&family=Mr+Dafoe&display=swap" rel="stylesheet">
 </head>
+
 <body>
-<div class="background">
-    <nav class="navbar">
-    <div class="navbar-list">
-        <a href="#"> About </a>
-        <a href="#"> Graphic </a>
-        <a href="#"> Fashion </a>
-        <a href="http://127.0.0.1:5502/craf.html"> Craft </a>
-    </div>
-    <button class="navbar-toggler">
-        <div class="line"></div>
-    </button>
-    </nav>
-</div>
-<div class="container">
-    <div class="greeting">
-        <img class="face" src="https://i.imgur.com/MsZ6V4L.png" title="source: imgur.com" /></a>
-        <div class="detail">
-            <div class="title"> Loremamet Conomod   </div>
-            <div  class="info"> <span > Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione sint accusamus 
-            esse pariatur recusandae commodi laboriosam </span>
-            </div>
-        
-        </div>
-        <div class="items">
-            <div class="item">
-                <span  class="circle1"></span>
-                <span  class="circle2"></span>
-                <span  class="circle3"></span>
-                <div class="item-title">  Graphic </div>
-          
-            </div>
-            
-           
-        </div>
-    </div>
+    <!-- navbar -->
+    <!-- 使用Boostrap Navbar -->
+    <!-- b4-navbar-default -->
+    <!-- 設定Navbar緊貼畫面上緣 -->
+    <!-- TODO: 點擊滾動目標 -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <a class="nav-color" class="navbar-brand" href="#">SaoirseLee</a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto">
     
-   
-</div>  
-   
+                <li class="nav-item">
+                    <a class="color" class="nav-link" href="#CraftSection">Craft</a>
+                </li>
+                <li class="nav-item">
+                    <a class="color" class="nav-link" href="#GrephicSection">Grephic</a>
+                </li>
+                <li class="nav-item">
+                    <a class="color" class="nav-link" href="#featuresSection">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="color" class="nav-link" href="#contnactSection">Contnact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- navbar end -->
+    <!-- header -->
+    <header id="header" class="jumbotron text-center text-info bg-dark">
+    <div class="container">
+        <h1>Welcome To Saoirse's Portfolio</h1>
+
+    </div>
+    </header>
+    <!-- header end -->
+    <!-- introSection -->
+    <!-- 設定introSection 上下padding為5倍 
+        pt-5 pb-5 => py-5, ml-4 mr-4 => mx-4
+    -->
+    <div class="col">
+    <section id="CraftSection" class="text " class="py-5">
+        <h1 class="text" class="section-title text-center text-secondary mb-5">Craft</h1>
+        <div class="container">
+            <!-- 修正排版為三項排一排 -->
+            <div class="row ">
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <a href="https://imgur.com/wEB3Vdt"><img src="https://i.imgur.com/wEB3Vdt.jpg"  width="80%"title="source: imgur.com" /></a>
+                            <!-- <img class="opacity2" src="/img/網站00-01.jpg" width="80%" alt=""> -->
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity2" src="/img/網站00-02-01.jpg" width="80%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity2" src="/img/網站00-03-01.jpg" width="80%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity2" src="/img/網站00-04-01.jpg" width="80%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity2" src="/img/網站00-05-01.jpg" width="80%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity2" src="/img/網站06-01.jpg" width="80%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- 設定此區塊距離上方5倍margin -->
+            <!-- 修正排版在md時六個排一排 sm三個排一排 sm以下兩個排一排-->
+        </div>
+    </section>
+    <section id="GrephicSection" class="text   baground" class="py-5">
+        <h1 class="text" class="section-title text-center text-primary mb-5">Grephic</h1>
+        <div class="container  baground">
+            <!-- 修正排版為三項排一排 -->
+            <div class="row baground ">
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面-01-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面07-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面02-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面03-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面06-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/平面05-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/coffee-01-01.png" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/helloween-01.png" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/名片-01.png" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/布花-01.png" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="intro-box">
+                        <div class="icon text-primary py-3">
+                            <img class="opacity" src="/img/gowifi賀卡-01.jpg" width="70%" alt="">
+                        </div>
+                        <h3 class="color1" class="text-secondary"></h3>
+                        <div class="intro-line bg-primary"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- 設定此區塊距離上方5倍margin -->
+            <!-- 修正排版在md時六個排一排 sm三個排一排 sm以下兩個排一排-->
+        </div>
+    </section>
+    </div>
+    <!-- introSection end -->
+    <!-- featuresSection -->
+    <section id="featuresSection" class="py-5 bg-secondary text-white">
+        <div class="container">
+            <h1 class="section-title mb-5 text-center">About</h1>
+            <!-- 設定row內的區塊置中對齊 
+                justify-content-end 區塊靠右
+            -->
+            <div class="row justify-content-center">
+                <div class="col-sm-10 col-md-8">
+                    
+                    <article class="collapse my-3 show  text-center" id="article1">
+                        <!-- <h3 class="mb-3" >About Me</h3> -->
+                        <p class="detail  text-center">我是李宜臻 畢業於亞洲大學服裝設計系,喜歡閱讀、看電影，對生活充滿好奇心，樂於嘗試不同的可能，挖掘自己的可能性。喜歡觀察周遭人事物，並將所體驗的靈感紀錄並應用在設計上。
+                        曾在設計公司實習擔任美編
+                        畢業後任職於鄭家珠寶公司，擔任飾品製作人員，也有做過短期的行政人員
+                        擅長整合事務，處理需注意細節及精確性的工作。
+                           
+                    </article>
+                    <!-- 導覽按鈕 .nav>a.nav-link -->
+                    <nav class="nav nav-pills justify-content-center mr-4">
+                        <a data-toggle="tab" class="nav-link active detailtitle" href="#article3"> 實習 </a>
+                        <a data-toggle="tab" class="nav-link detailtitle" href="#article4"> 經歷 </a>
+                        <a data-toggle="tab" class="nav-link detailtitle" href="#article6"> Skill </a>
+                       
+                    </nav>
+                    <!-- 為article3 article4 設置tab互動方式 
+                            .tab-content > .tab-pane(每個要切換的內容)
+                    -->
+                    <div class="tab-content justify-content-center">
+                        <article id="article3" class="tab-pane my-3 active  text-center ">
+                            <!-- <h3 class="detailtitle "> 實習 </h3> -->
+                            <p class="detail ">在學期間，曾到設計公司實習，雖然時間短暫，但加強了我對視覺的敏感度，也讓我將繪圖軟體運用的很熟練，此外，也學習到如何去跟客戶及印刷廠那座溝通，以確保成品出來能符合客戶的標準。
+                                
+                            </p>
+                        </article>
+                        <article id="article4" class="tab-pane my-3 text-center">
+                            <p class="detail ">畢業後第一份工作，在鄭家珠寶公司當金工師傅。主要工作內容是將鑄造回來的東西打磨、修整到做成成品，此外，也包含製作手工材料、看訂單、點材料等等。在工作期間，除了磨練自己的工法與技術更純熟外，也學習到對時間的控管及與團隊的溝通，了解團隊的角色分工。
+                            </p>
+                        </article>
+                        <article id="article5" class="tab-pane my-3 text-center">
+                            <p class="detail ">
+                                畢業後第一份工作，在鄭家珠寶公司當金工師傅。主要工作內容是將鑄造回來的東西打磨、修整到做成成品，此外，也包含製作手工材料、看訂單、點材料等等。在工作期間，除了磨練自己的工法與技術更純熟外，也學習到對時間的控管及與團隊的溝通，了解團隊的角色分工。
+                            </p>
+                        </article>
+                        <article id="article6" class="tab-pane my-3 text-center justify-content-end row  mt-4">
+                            <div class=" row  text-center">
+                                <img src="./img/ps-01.png" width="20%" alt="">
+                                <img src="./img/ai-01.png" width="20%" alt="">
+                                <img src="./img/id-01.png" width="20%" alt="">
+                                <img src="./img/html-01.png" width="20%" alt="">
+                                <img src="./img/css-01.png" width="20%" alt="">
+                                
+                                
+                            </div>
+                           
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- featuresSection end -->
+    <section class="page-section my-5" id="contnactSection">
+        <div class="container">
+            <div class="text-center">
+                <h1 class="section-heading  text-secondary mt-5 mb-5"> Contact </h1>
+            </div>
+            <form id="contactForm" name="sentMessage" novalidate="novalidate"
+                action="https://formspree.io/karta2215304@gmail.com" method="post">
+                <div class="row align-items-stretch mb-5">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <input class="form-control" id="name" type="text" placeholder="Your Name *" required="required"
+                                data-validation-required-message="Please enter your name." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group">
+                            <input class="form-control" id="email" type="email" placeholder="Your Email *"
+                                required="required" data-validation-required-message="Please enter your email address." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                        <div class="form-group mb-md-0">
+                            <input class="form-control" id="phone" type="tel" placeholder="Your Phone *" required="required"
+                                data-validation-required-message="Please enter your phone number." />
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group form-group-textarea mb-md-0">
+                            <textarea class="form-control" id="message" placeholder="Your Message *" required="required"
+                                data-validation-required-message="Please enter a message."></textarea>
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <div id="success"></div>
+                    <button class="btn btn-primary btn-xl text-uppercase" id="sendMessageButton" type="submit">Send
+                        Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <footer class="footer pt-4 bg-primary">
+    <div class="container ">
+        <div class="row align-items-center justify-content-center">
+            <div class="row justify-content-center mb-3">
+                <i class="icon2 fab fa-line fa-3x" style="color:rgb(150, 163, 134) "></i>
+                <i class=" icon2 fab fa-instagram fa-3x  " style="color:rgb(150, 163, 134) "></i>
+            </div>
+            <div class="col-lg-4 text-center">Copyright © Your Website 2020</div>
+        </div>
+    </div>
+    </footer>  
+    <!-- footer end -->
+    <!-- ad-box -->
+    
+    <!-- ad-box end -->
+    <!-- 設定置底返回按鈕 返回按鈕滾動動畫 -->
+    <button href="#header" id="goBackBtn" class="bg-primary">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- jquery.min.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- popper.min.js -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <!-- bootstrap.min.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+    <!-- wow.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js"></script>
+    <!-- 連結網頁主程式 -->
+    <script src="./js/main.js"></script>
 </body>
 
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./grid.js"></script>
 </html>
