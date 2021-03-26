@@ -1,0 +1,1495 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/><!--讓ie在切換瀏覽器模式時 文件模式會使用最新的版本-->
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<meta name="Robots" content="none" /><!--不被搜尋引擎搜到-->
+
+<!--RWD用-->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!--RWD用-->
+
+<!--android 手機板主題顏色用 更改網址列顏色-->
+<meta name="theme-color" content="#666666">
+<!--android 手機板主題顏色用-->
+
+<meta name="format-detection" content="telephone=no"><!--取消行動版 safari 自動偵測數字成電話號碼-->
+
+<title>SaoirseLee's Website</title>
+<link rel="shortcut icon" href="web/images/favicon.png" /><!--電腦版icon-->
+<link rel="apple-touch-icon" href="web/images/icon.png" /><!--手機版icon  57x57px-->
+<link rel="apple-touch-icon" sizes="72x72" href="web/images/icon-72.png" /><!--手機版icon  72x72px-->
+<link rel="apple-touch-icon" sizes="114x114" href="web/images/icon@2.png" /><!--手機版icon  114x114px-->
+
+<!--內容區塊css-->
+<link rel="stylesheet" type="text/css" href="web/css/style.css"/>
+<!--版頭區塊css-->
+<link rel="stylesheet" type="text/css" href="web/css/style_header.css"/>
+<!--版腳區塊css-->
+<link rel="stylesheet" type="text/css" href="web/css/style_footer.css"/>
+
+<!--google material icon-->
+<link rel="stylesheet" href="web/icon_fonts/material_icons/material-icons.css">
+
+<script src="web/js/jquery-1.10.2.min.js" type="text/javascript"></script>
+<script src="web/js/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+
+<!--JavaScript共用區-->	
+<script src="web/js/common.js" type="text/javascript"></script>
+    
+<!--新增修改banner套件 modify by pekey 20190625 start-->    
+<!--輪播特效 第一塊 開始-->
+<link rel="stylesheet" type="text/css" href="web/js/swiper-master/css/swiper.css"/>
+<!--輪播特效 第一塊 結束-->
+<!--新增修改banner套件 modify by pekey 20190625 end-->
+
+<!-- <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Permanent+Marker&display=swap" rel="stylesheet"> -->
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Fascinate&family=Gloria+Hallelujah&family=Permanent+Marker&display=swap" rel="stylesheet">  
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+</head>
+
+<body>
+        
+    <!--loading畫面-->
+    <!--<script>
+        $(window).load(function(){
+                $('#loading').hide();
+        });
+    </script>-->  
+    
+	<!--loading畫面-->
+	<!--<div id="loading" class="loading">
+        <div id="circularG">
+            <div id="circularG_1" class="circularG"></div>
+            <div id="circularG_2" class="circularG"></div>
+            <div id="circularG_3" class="circularG"></div>
+            <div id="circularG_4" class="circularG"></div>
+            <div id="circularG_5" class="circularG"></div>
+            <div id="circularG_6" class="circularG"></div>
+            <div id="circularG_7" class="circularG"></div>
+            <div id="circularG_8" class="circularG"></div>
+        </div>
+        <div class="loading_tit">
+            讀取中...
+        </div>    
+	</div>-->
+    
+    
+    <script type="text/javascript">
+		$(function(){
+			
+			//輪播尺寸
+			function bannerH() {
+				var winHeight	= $(window).height();			//螢幕高度
+				var win_W		 = $(window).width();			//螢幕寬度
+				var headerH		= $(".header").innerHeight();	//版頭高度
+				
+				if ( win_W >= 780 ) {
+					$(".pc_banner_bg").css({
+						'height':(winHeight-headerH)
+					});
+				}else {
+					$(".pc_banner_bg").css({
+						'height':'560px'
+					});
+				}
+				
+			};
+			bannerH();
+			
+			$(window).resize(function(e) {
+                bannerH();
+            });
+			
+			//導行列
+			
+			function navigation() {
+				var winPosition		= $(window).scrollTop();
+				
+				for ( n=1; n<5; n++ ) { 
+					var x = n+1;
+					
+					var domPosition1	= $("#anchor"+n).position().top;
+					var domPosition2	= $("#anchor"+x).position().top;
+					var domPosition5	= $("#anchor5").position().top;		//最後一個的位置
+
+					if ( (winPosition+1) >= domPosition5 ) {
+						$(".anchor5").addClass("active");
+					}if ( (winPosition+1) < domPosition5 ) {
+						$(".anchor5").removeClass("active");
+					}if ( (winPosition+1) >= domPosition1 && (winPosition+1) < domPosition2 ) {
+						$(".anchor"+n).addClass("active");
+					}if ( (winPosition+1) < domPosition1 || (winPosition+1) >= domPosition2 ) {
+						$(".anchor"+n).removeClass("active");
+					}
+				}
+			};			
+			
+			$(window).scroll(function(e) {
+                navigation();
+            });
+			
+			//產品燈箱
+			$(".lightBoxShow").click(function(e) {
+                $(".product_lightBox").show();
+            });
+			$(".product_lightBox_bg, .pLb_close").click(function(e) {
+                $(".product_lightBox").hide();
+            });
+			
+			//最新消息收合
+			$(".nL_top").click(function(e) {
+				$(".nL_top").not(this).siblings(".nL_text_area").slideUp();
+                $(this).siblings(".nL_text_area").slideDown();
+            });
+			
+		});
+    </script>
+	
+        
+	<div class="headerTop" id="top">
+    </div>
+    
+    <!--版頭-->
+    <div class="header">
+       <div class="intro_img">
+            <img src="web/index/images/header_bg.png" alt="">
+        </div> 
+    	<div class="wrap">
+        	
+            <!--logo-->
+            <!-- <div class="logo">
+            	<a href="#top">
+                	<img src="web/images/logo.png" width="150" />
+                </a>
+            </div>
+             -->
+            
+            <!--主按鍵-->
+            <div class="navbar">
+            	<div class="nav anchor1">
+                	<a href="#anchor1">
+                    	About
+                    </a>
+                </div>
+                
+                <div class="nav anchor2">
+                	<a href="#anchor2">
+                    	Craft
+                    </a>
+                </div>                
+                
+               <div class="nav anchor3">
+                	<a href="#anchor3">
+                    	Graphic
+                    </a>
+                </div> 
+                
+               
+                <div class="nav anchor4">
+                	<a href="#anchor4">
+                    	Web
+                    </a>
+                </div>
+
+                <!-- <div class="nav anchor5">
+                	<a href="#anchor5">
+                    	聯絡我們
+                    </a>
+                </div>--> 
+                <!--移除 modifyby karol 20201109 end-->
+                <div class="clearfloat">
+                </div>
+            </div>            
+            
+            <!--手機menu按鍵-->
+            <div class="menu_btn">
+                <span>
+                </span>
+                <span>
+                </span>
+                <span>
+                </span>
+            </div>
+            
+            <div class="clearfloat">
+            </div>
+            
+        </div>
+    </div>
+    
+    <!--main-->
+    <div class="main">
+
+
+        <div class="introArea">
+          
+            <div class="wrap">
+                <div class="intro_bg">
+                    <div class="intro_left">
+                        <div class="Img">
+                            <img src="web/index/images/face01.png" />
+                        </div>    
+                    </div>
+                    <div class="intro_right">
+                        <!--促銷提示文案-->
+                        <!-- <div class="limit_sales_info">
+                            <p>Ebo 智能寵物伴侶</p>
+                        </div> -->
+                        <!--商品名稱-->
+                        <div class="contain">
+                            <div class="limitR_tit">
+                                Hello 我是李宜臻
+                            </div>
+                            <!--商品簡述-->
+                            <div class="limitR_remark">
+                                曾在設計公司實習擔任美編
+                                畢業後任職於鄭家珠寶公司，擔任飾品製作人員，也有做過短期的行政人員
+                                擅長整合事務，處理需注意細節及精確性的工作。
+                                <br><br>
+                                
+                            </div>
+                        </div>    
+                        <div class="introRight_bg">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                     
+                    </div>
+                    <svg>
+                        <filter id="gooey">
+                            <feGaussianBlur in="SourceGraphic"stdDeviation="10"/>
+                            <feColorMatrix values="
+                                        1 0 0 0 0
+                                        0 1 0 0 0
+                                        0 0 1 0 0
+                                        0 0 0 20 -10"></feColorMatrix>
+                        </filter>
+                    </svg>
+                    <div class="clearfloat">
+                    </div>
+                    
+                </div>
+                <!-- <div class="craftImg">
+                    <img src="web/index/images/craft_tit_bg.png" alt="">
+                </div> -->
+            </div>
+        </div>
+
+        <div class="anchor" id="anchor2"></div>
+        <div class="crafArea " data-aos="fade-up" data-aos-duration="3000">
+            <div class="craf_titArea">
+                <!-- <div class="Img">
+                    <img src="web/index/images/craft_tit_bg.png" alt="">
+                </div> -->
+                <div class="craft_tit">
+                    Craft Design
+                </div>
+            </div>
+            <div class="wrap">
+              
+                <div class="craftList">
+
+                    <div class="square">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <div class="contain">
+                            <img class="ring1" src="web/index/images/cf06.png" width="150"
+                                    height="150" title="source: imgur.com" />
+                            <div class="title">Blessing</div>
+                            <p class="info">每個木頭，都有他獨特的木紋，是樹木生長必不可少的，也是歲月最好的記憶，承受無盡的變化，帶給人們一段記憶、一份溫暖。
+                            </p>
+                        </div>
+                    
+                       </div>
+                        <div class="square">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div class="contain">
+                                <img class="ring1" src="web/index/images/cf02.png" width="150"
+                                        height="150" title="source: imgur.com" />
+                                <div class="title">Masquerade</div>
+                                <p class="info">在面具的背後，社會差異暫時被消除。富人变成了窮人，而窮人成了富人。
+                                </p>
+                            </div>
+                        
+                        </div>
+                        <div class="square">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div class="contain">
+                                <img class="ring1" src="web/index/images/cf03.png" width="150"
+                                        height="150" title="source: imgur.com" />
+                                <div class="title">Une Fleur</div>
+                                <p class="info">「你在玫瑰身上所花費的時間，讓你的玫瑰花變得如此重要。」真正無可取代的，是你願意花在他身上的時間，是你們願意留給彼此的時間。
+                                </p>
+                            </div>
+                        
+                        </div>
+                        <div class="square">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div class="contain">
+                                <img class="ring1" src="web/index/images/cf04.png" width="150"
+                                        height="150" title="source: imgur.com" />
+                                <div class="title">When Chirstmas Comes</div>
+                                <p class="info"> 聖誕老人總是快活的在聖誕前夜乘著雪橇到來，從煙囪爬進屋內，將孩子們的願望放進長襪中。
+                                </p>
+                            </div>
+                        
+                        </div>
+                        <div class="square">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div class="contain">
+                                <img class="ring1" src="web/index/images/cf05.png" width="150"
+                                        height="150" title="source: imgur.com" />
+                                <div class="title">Sky Castle</div>
+                                <p class="info">一個城市如果脫離了土地，他便無法生存,科技是一把雙刃劍，用的好便能造福人類，用不好便會給人類帶來災難，大自然才是人類永久的家園。
+                                </p>
+                            </div>
+                        
+                        </div>
+                        <div class="square">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div class="contain">
+                                <img class="ring1" src="web/index/images/cf01.png" width="150"
+                                        height="150" title="source: imgur.com" />
+                                <div class="title">Sky Castle</div>
+                                <p class="info">一個城市如果脫離了土地，他便無法生存,科技是一把雙刃劍，用的好便能造福人類，用不好便會給人類帶來災難，大自然才是人類永久的家園。
+                                </p>
+                            </div>
+                        
+                        </div>
+                       
+                </div>
+            </div>
+        </div>
+
+        <div class="anchor" id="anchor3"></div>
+                <!--平面-->
+        <div class="index_adBg"  data-aos="fade-up" data-aos-duration="1000">
+
+            <div class="wrap">	
+                
+                <div class="index_adArea">
+            
+                        <!--大標-->
+                    <div class="craft_tit">
+                        <span>Graphic</span>
+                    </div>
+                    
+                    <!--輪播-->
+                    <div class="index_logo_area">
+                        <div class="wrap">
+                        
+                            <div class="device device2">
+                
+                                <a class="arrow-left loverLeft" href="javascript: void(0);">
+                                    <img src="web/index/images/left_arrow02.png" width="32" height="auto" />
+                                </a> 
+                                <a class="arrow-right loverRight" href="javascript: void(0);">
+                                    <img src="web/index/images/right_arrow02.png" width="32" height="auto" />
+                                </a>
+                                
+                            
+                                <div class="swiper-container loverItemArea">
+                                    <div class="swiper-wrapper">
+        
+                                        <div class="swiper-slide">
+                                            <div class="logo_item">
+                                            
+                                                <a href="#" target="">
+                                                    <img src="web/index/images/gr01.png" title="" alt=""/>
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+    
+                                        <div class="swiper-slide">
+                                            <div class="logo_item">
+                                            
+                                                <a href="#" target="">
+                                                    <img src="web/index/images/gr02.png" title="" alt=""/>
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="swiper-slide">
+                                            <div class="logo_item">
+                                            
+                                                <a href="#" target="">
+                                                    <img src="web/index/images/gr03.png" title="" alt=""/>
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+    
+                                        <div class="swiper-slide">
+                                            <div class="logo_item">
+                                            
+                                                <a href="#" target="">
+                                                    <img src="web/index/images/gr04.png" title="" alt=""/>
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+                                            
+                                        <div class="swiper-slide">
+                                            <div class="logo_item">
+                                            
+                                                <a href="#" target="">
+                                                    <img src="web/index/images/gr05.png" title="" alt=""/>
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+    
+                                        <div class="swiper-slide">
+                                            <div class="logo_item">
+                                            
+                                                <a href="web/porducts/products.html" target="">
+                                                    <img src="web/index/images/gr06.png" title="" alt=""/>
+                                                    
+                                                </a>
+                                            </div>
+                                        </div>
+                
+                                    </div>
+                                </div>
+                            </div>        				
+                        
+                        </div>
+                    </div>
+                    
+                    <!--輪播特效 第二塊 開始-->
+                    <script src="web/js/swiper/idangerous.swiper.js"></script>
+                    <script type="text/javascript">
+                        //加購商品 商品列表 用
+                        var windowWidth = $(window).width();
+                        
+                        //相關商品用
+                        var mySwiper3;
+                        $(function(){
+                            if ( windowWidth >= 990 ) {
+                                //$("#additional").attr("src","../js/additional_pc.js");
+                                mySwiper3 = new Swiper('.loverItemArea',{							
+                                    simulateTouch: true,                       //默認為true，swiper接受鼠標點擊、拖動。設置為false時無法拖動
+                                    loop:true,                                 //设置为true 则开启loop模式。loop模式：会在wrapper前后生成若干个slides让slides看起来是衔接的，用于无限循环切换
+                                    grabCursor: true,                          //设置为true时，鼠标覆盖Swiper时指针会变成抓手形状
+                                    calculateHeight : true,                    //当值为true时，Swiper根据slides内容计算容器高度
+                                    
+                                    autoplay : 2000,                          //自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换
+                                    
+                                    autoplayDisableOnInteraction : false,      //用户操作swiper之后，是否禁止autoplay。默认为true：停止。 如果设置为false，用户操作swiper之后自动切换不会停止，每次都会重新启动autoplay
+                                    
+                                    slidesPerView : 3,   	                   //设置slider容器能够同时显示的slides数量(carousel模式)。另外，支持'auto'值，会根据容器container的宽度调整slides数目。'auto'不兼容loop模式，除非你设置了loopedSlides。
+                                    resizeReInit : true,
+                                    loopedSlides :1,                         //在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数。
+                                })
+                                
+                                $('.loverLeft').click(function(){
+                                    mySwiper3.swipePrev(); 
+                                });
+                                $('.loverRight').click(function(){
+                                    mySwiper3.swipeNext(); 
+                                });
+                            }else if ( windowWidth < 990 ) {
+                                //$("#additional").attr("src","../js/additional_mobile.js");
+                                mySwiper3 = new Swiper('.loverItemArea',{							
+                                    simulateTouch: true,                       //默認為true，swiper接受鼠標點擊、拖動。設置為false時無法拖動
+                                    loop:true,                                 //设置为true 则开启loop模式。loop模式：会在wrapper前后生成若干个slides让slides看起来是衔接的，用于无限循环切换
+                                    grabCursor: true,                          //设置为true时，鼠标覆盖Swiper时指针会变成抓手形状
+                                    calculateHeight : true,                    //当值为true时，Swiper根据slides内容计算容器高度
+                                    
+                                    autoplay : 2000,                            //自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换
+                                    autoplayDisableOnInteraction : false,      //用户操作swiper之后，是否禁止autoplay。默认为true：停止。 如果设置为false，用户操作swiper之后自动切换不会停止，每次都会重新启动autoplay
+                                    
+                                    slidesPerView : 2,   	                   //设置slider容器能够同时显示的slides数量(carousel模式)。另外，支持'auto'值，会根据容器container的宽度调整slides数目。'auto'不兼容loop模式，除非你设置了loopedSlides。
+                                    resizeReInit : true,
+                                    loopedSlides :1,                         //在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数。
+                                })
+                                
+                                $('.loverLeft').click(function(){
+                                    mySwiper3.swipePrev(); 
+                                });
+                                $('.loverRight').click(function(){
+                                    mySwiper3.swipeNext(); 
+                                });
+                            }else if ( windowWidth < 690 ) {
+                                //$("#additional").attr("src","../js/additional_mobile.js");
+                                mySwiper3 = new Swiper('.loverItemArea',{							
+                                    simulateTouch: true,                       //默認為true，swiper接受鼠標點擊、拖動。設置為false時無法拖動
+                                    loop:true,                                 //设置为true 则开启loop模式。loop模式：会在wrapper前后生成若干个slides让slides看起来是衔接的，用于无限循环切换
+                                    grabCursor: true,                          //设置为true时，鼠标覆盖Swiper时指针会变成抓手形状
+                                    calculateHeight : true,                    //当值为true时，Swiper根据slides内容计算容器高度
+                                    
+                                    autoplay : 2000,                            //自动切换的时间间隔（单位ms），不设定该参数slide不会自动切换
+                                    autoplayDisableOnInteraction : false,      //用户操作swiper之后，是否禁止autoplay。默认为true：停止。 如果设置为false，用户操作swiper之后自动切换不会停止，每次都会重新启动autoplay
+                                    
+                                    slidesPerView : 1,   	                   //设置slider容器能够同时显示的slides数量(carousel模式)。另外，支持'auto'值，会根据容器container的宽度调整slides数目。'auto'不兼容loop模式，除非你设置了loopedSlides。
+                                    resizeReInit : true,
+                                    loopedSlides :1,                         //在loop模式下使用slidesPerview:'auto',还需使用该参数设置所要用到的loop个数。
+                                })
+                                
+                                $('.loverLeft').click(function(){
+                                    mySwiper3.swipePrev(); 
+                                });
+                                $('.loverRight').click(function(){
+                                    mySwiper3.swipeNext(); 
+                                });
+                            }
+                        });
+                        
+                        //相關商品 商品列表 重置顯示數量用
+                        function additional3() {
+                            var win_W = $(window).width();
+                            if ( win_W >= 990 ) {
+                                mySwiper3.params.slidesPerView=3;
+                            }if ( win_W < 990 ) {
+                                mySwiper3.params.slidesPerView=2;
+                            }
+                            if ( win_W < 690 ) {
+                                mySwiper3.params.slidesPerView=1;
+                            }
+                        };
+                        
+                        $(window).resize(function(e) {
+                            additional3();
+                            mySwiper3.reInit();
+                        });
+                    </script>
+                    <!--輪播特效 第二塊 結束-->
+                                
+                    <div class="clearfloat">
+                    </div>
+                </div>
+                                        
+            </div>            
+        </div>
+
+              
+		<!--限時搶購-->
+        <div class="limit_buyBg">
+            <div class="wrap">
+                <div class="limit_buy">
+
+                    <div class="limit_buy_bg">
+                        <div class="limit_left">
+                            <img src="web/index/images/limit.jpg" />
+                        </div>
+                        <div class="limit_right">
+                        	<!--促銷提示文案-->
+                            <div class="limit_sales_info">
+								<p>Ebo 智能寵物伴侶</p>
+                            </div>
+                            <!--商品名稱-->
+                            <div class="limitR_tit">
+								Ebo 智能寵物伴侶-Pro追蹤功能豪華套裝版
+                            </div>
+                            <!--商品簡述-->
+                            <div class="limitR_remark">
+                            	Ebo，是您寵物的最好的朋友、永遠不會吵架的伴侶。一個充滿互動、樂趣、智慧的體驗，可幫助您的貓壯成長，以實現寵物們的最佳身心健康。
+                                <br><br>
+                                
+                            </div>
+                            <div class="limitR_price">
+
+                                $<span>9,480</span>
+                                <!-- <div class="pLLP_discount">
+                                    ↘10折
+                                </div> -->
+
+
+                            </div>
+
+                            <!-- <div class="limit_time_area">倒數&nbsp;
+                                <span id="hour1">08</span>：<span id="min1">24</span>：<span id="sec1">06</span>
+                                &nbsp;結束
+                            </div> -->
+                            <div class="product_selectArea">
+                        
+                                <div class="pITR_quantity">
+                                    <select>
+                                        <option>請選擇訂購數量</option>
+                                    
+                                        <option value="1">1</option>
+                                    
+                                        <option value="2">2</option>
+                                    
+                                        <option value="3">3</option>
+                                    
+                                        <option value="4">4</option>
+                                    
+                                        <option value="5">5</option>
+                                    
+                                        <option value="6">6</option>
+                                    
+                                        <option value="7">7</option>
+                                    
+                                        <option value="8">8</option>
+                                    </select>
+                                </div> 
+                                <div class="pITR_btn_area">
+                                    <input type="submit" value="加入購物車" class="add" onclick="location='web/cart/cart.html'">
+                                </div>
+                                <div class="clearfloat">
+                                </div>
+                                
+                            </div>                      
+                        </div>
+                        
+                        <div class="clearfloat">
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!--關於我們-->
+        <div class="anchor" id="anchor1"></div>
+        
+        <div class="dom dom_1">
+        	<div class="wrap">
+            	
+                <!--標題樣式1-->
+                <div class="tit_type1">
+                	關於我們
+                </div>
+                
+                <div class="text_area">
+                	<p>這是一群由理念相同的工程師及"鏟屎官"奴才們所組成的團隊。
+                        為了自己寶貝主子的娛樂為出發點，擔心不再家時，主子們「嗚，嗚」的孤鳴聲，
+                        或是吃飽睡睡飽吃得無聊得無聊宅宅動物人生。為此，我們創造了Ebo智能高科技產品，
+                        是主子們的玩伴，也是您不在時的好幫手，「記錄瞬間，沒有距離」。
+                	</p>
+                    <br><br>
+
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/05tS9ey6cig" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <!-- <img src="web/index/images/p1.gif" />
+                    <img src="web/index/images/ad_02.jpg" />
+                    <img src="web/index/images/ad_03.jpg" />
+                    <img src="web/index/images/ad_04.jpg" />
+                    <img src="web/index/images/ad_05.jpg" />
+                    <img src="web/index/images/ad_06.jpg" /> -->
+                </div>
+
+                <div class="adArea">
+                    <div class="adList">
+                        <!-- 圖片 -->
+                        <div class="adImg">
+                            <img class="pc_adImg" src="web/index/images/EBO_BANNER.jpg" alt="">
+                            <div class="mobile_adImg">
+                                <img src="web/index/images/EBO_BANNER_mobile.jpg"  />
+                            </div> 
+                        </div>
+
+                        <!-- 標題 -->
+                        <div class="ad_title">
+                            Ebo 智能寵物伴侶
+                        </div>
+                        
+                        <!--了解更多-->
+                        <div class="ad_btn_area">                	
+                            <a href="">
+                                了解更多
+                            </a>
+                        </div>     
+            
+                        
+                    </div>
+                    <div class="adList">
+                        <!-- 圖片 -->
+                        <div class="adImg">
+                            <img class="pc_adImg" src="web/index/images/EBO_BANNER.jpg" alt="">
+                            <div class="mobile_adImg">
+                                <img src="web/index/images/EBO_BANNER_mobile.jpg"  />
+                            </div> 
+                        </div>
+
+                        <!-- 標題 -->
+                        <div class="ad_title">
+                            Ebo 智能寵物伴侶
+                        </div>
+                        
+                        <!--了解更多-->
+                        <div class="ad_btn_area">                	
+                            <a href="">
+                                了解更多
+                            </a>
+                        </div>     
+            
+                        
+                    </div>
+                    <div class="adList">
+                        <!-- 圖片 -->
+                        <div class="adImg">
+                            <img class="pc_adImg" src="web/index/images/EBO_BANNER.jpg" alt="">
+                            <div class="mobile_adImg">
+                                <img src="web/index/images/EBO_BANNER_mobile.jpg"  />
+                            </div> 
+                        </div>
+
+                        <!-- 標題 -->
+                        <div class="ad_title">
+                            Ebo 智能寵物伴侶
+                        </div>
+                        
+                        <!--了解更多-->
+                        <div class="ad_btn_area">                	
+                            <a href="">
+                                了解更多
+                            </a>
+                        </div>     
+            
+                        
+                    </div>
+                    <div class="adList">
+                        <!-- 圖片 -->
+                        <div class="adImg">
+                            <img class="pc_adImg" src="web/index/images/EBO_BANNER.jpg" alt="">
+                            <div class="mobile_adImg">
+                                <img src="web/index/images/EBO_BANNER_mobile.jpg"  />
+                            </div> 
+                        </div>
+
+                        <!-- 標題 -->
+                        <div class="ad_title">
+                            Ebo 智能寵物伴侶
+                        </div>
+                        
+                        <!--了解更多-->
+                        <div class="ad_btn_area">                	
+                            <a href="">
+                                了解更多
+                            </a>
+                        </div>     
+            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <!--商品介紹-->
+       
+        
+        <div class="dom dom_4">
+        	<div class="wrap">
+            	
+                <!--標題樣式1-->
+                <div class="tit_type1">
+                	產品介紹
+                </div>
+                
+                <!--商品列表-->
+                <div class="product_list_area">
+                	
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p1.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	Ebo 智能寵物伴侶-Pro追蹤功能豪華套裝版
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <!-- <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div> -->
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            售價：<span>NT$ 9,480</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p2.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	Ebo 智能寵物伴侶-豪華標準套裝版
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <!-- <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div> -->
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            售價：<span>NT$ 7,980</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p3.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	Mini Ebo 計步項圈
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <!-- <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div> -->
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            售價：<span>NT$ 980</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                   
+                    
+                    
+                    <!--載入更多-->
+                    <!--<div class="more">
+                    	<a href="#">
+                        	載入更多...
+                        </a>
+                    </div>-->
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        
+        <!--門店資訊-->
+       
+        
+        <div class="dom dom_2">
+        	<div class="wrap">
+            	
+                <!--標題樣式1-->
+                <div class="tit_type1">
+                	優惠活動
+                </div>
+                
+                <div class="text_area">
+                	<p style="text-align: center; font-size: 20px; padding-bottom: 20px;">好友分享組，任選2件優惠組 <span style="color: #c32126;">(現省 140-200 元)</span></p>
+                    <br>
+                    <img src="web/index/images/ad_01.jpg" />
+                    <br>
+                </div>
+                
+                <!--商品列表-->
+                <div class="product_list_area">
+                	
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p1.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	Ebo 智能寵物伴侶-Pro追蹤功能豪華套裝版
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <!-- <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div> -->
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            售價：<span>$ 2,000</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p2.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	堅果小塔
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <!-- <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div> -->
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            售價：<span>$ 2,000</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p3.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	堅果小塔
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            特價：<span>$ 2,000</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                    <div class="list">
+                    	<!--移除燈箱class modify by karol 20201109 start-->
+                        <!--<div class="product_list lightBoxShow">--><!--要開啟燈箱的產品class內加lightBoxShow-->
+                        <div class="product_list">
+                        <!--移除燈箱class modify by karol 20201109 end-->
+                            <div class="pL_img">
+                               <img src="web/index/images/p4.png"  />
+                            </div>
+                            <div class="pL_tit">
+                                READ MORE
+                            </div>
+                        </div>
+                        <div class="title">
+                        	堅果小塔
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 start-->
+                        <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div>
+                        <!--新增建議售價 modify by karol 20201109 end-->
+                        <div class="price">
+                            特價：<span>$ 2,000</span>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 start-->
+                        <div class="pLL_add_cart">
+                            <a href="web/cart/cart.html">
+                                加入購物車 +
+                            </a>
+                        </div>
+                        <!--新增加入購物車按鈕 modify by karol 20201109 end-->
+                    </div>
+                    
+                    
+                    <!--載入更多-->
+                    <!--<div class="more">
+                    	<a href="#">
+                        	載入更多...
+                        </a>
+                    </div>-->
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        <!--最新消息-->
+        <div class="anchor" id="anchor4"></div>
+        
+        <div class="dom dom_3">
+        	<div class="wrap">
+            	
+                <!--標題樣式1-->
+                <div class="tit_type1">
+                	最新消息
+                </div>
+                
+                <!--最新消息列表-->
+                <div class="news_list_area">
+                	
+                    <div class="news_list">
+                    	<div class="nL_top">
+                        	<div class="nLT_time">
+                            	<div>
+                                	2020/10
+                                </div>
+                                <div>
+                                	20
+                                </div>
+                            </div>
+                            <div class="nLT_tit">
+                            	網路訂購，新鮮送達!
+                            </div>
+                        </div>
+                        
+                        <!--最新消息網編區-->
+                        <div class="nL_text_area">
+                        	<div>
+                            	古斯塔亨利採用線上及電話下單配送系統，搭配先進中央烘焙坊，當日生產配送。中央烘焙坊採用潔淨廠房，通過空間梳理整個生產流程，提高了店商配送效率。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news_list">
+                    	<div class="nL_top">
+                        	<div class="nLT_time">
+                            	<div>
+                                	2020/10
+                                </div>
+                                <div>
+                                	20
+                                </div>
+                            </div>
+                            <div class="nLT_tit">
+                            	歷經七道工法九道程序製成 的古斯塔·亨利塔皮
+                            </div>
+                        </div>
+                        
+                        <!--最新消息網編區-->
+                        <div class="nL_text_area">
+                        	<div>
+                            	當您咬下一口古斯塔·亨利的鹹派、甜塔，塔皮的酥鬆、酥脆，發酵奶油的醇厚風味絕對讓您記憶深刻…為了達到如此的口感，店內的每位師傅都遵循著，型成規範的，古斯塔·亨利塔皮製作標準…
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news_list">
+                    	<div class="nL_top">
+                        	<div class="nLT_time">
+                            	<div>
+                                	2020/10
+                                </div>
+                                <div>
+                                	20
+                                </div>
+                            </div>
+                            <div class="nLT_tit">
+                            	想吃點不一樣的，快來訂購堅果小塔！
+                            </div>
+                        </div>
+                        
+                        <!--最新消息網編區-->
+                        <div class="nL_text_area">
+                        	<div>
+                            	蛋奶餡漸漸的在時間，火侯和師傅仔細攪拌下孕育出香濃風味與美妙質地。最後再歷經標準法式高級過塞工藝，讓您品嚐的每一口蛋奶餡都釋放出柔滑溫順的口感。
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <br/><br/>
+                    
+                    <!--載入更多-->
+                    <div class="more">
+                    	<a href="#">
+                        	載入更多...
+                        </a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+
+        <!--聯絡我們-->
+        <div class="anchor" id="anchor5"></div>
+        
+        <div class="dom dom_5">
+        	<div class="wrap">
+            	
+                <!--標題樣式1-->
+                <div class="tit_type1">
+                	聯絡我們
+                </div>
+                
+                <!--聯絡我們左-->
+                <div class="contact_left">
+                	
+                    <div class="form_list">
+                        <div class="fL_tit">
+                            姓名：
+                        </div>
+                        <div class="fL_info">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    
+                    <div class="form_list">
+                        <div class="fL_tit">
+                            電話：
+                        </div>
+                        <div class="fL_info">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    
+                    <div class="form_list">
+                        <div class="fL_tit">
+                            Email：
+                        </div>
+                        <div class="fL_info">
+                            <input type="text" />
+                        </div>
+                    </div>
+                    
+                    <div class="form_list">
+                        <div class="fL_tit">
+                            訊息內容：
+                        </div>
+                        <div class="fL_info">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form_list">
+                        <div class="fL_tit">
+                            驗證碼：
+                        </div>
+                        <div class="fL_info captcha">
+                            <input type="text" />
+                            <img src="web/images/captcha.png" width="72" height="27" />
+                            <br/>
+                            <a href="#">
+                                重取驗證碼
+                            </a>
+                            <span>
+                                (請注意英文字母大小寫！)
+                            </span>
+                        </div>
+                    </div>
+                    
+                    <!--按鍵區-->
+                    <div class="btn_area">
+                        <input type="reset" value="重新填寫" />
+                        <input type="submit" value="確認送出" />
+                        <div class="clearfloat">
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!--聯絡我們右-->
+                <div class="contact_right">
+                	
+                    <!--網編區-->
+                    <section class="text_area">
+                        
+                        <div>
+                            
+                            <strong style="color:#222;">任何問題？問我們！</strong>
+                            <br/><br/>
+                        	
+                            為提供您更完善的體驗與服務，歡迎您隨時留言，請詳述問題或建議，若有需要歡迎您來電，我們將會有專人為您服務
+                            
+                            <br/><br/>
+                            訂購電話：02-2912-5579
+                            <br />
+                            營業時間：10:00～20:30
+                            <br />
+                            餐廳地址：新北巿新店區北新路三段217 號13 樓
+                            <br /><br />
+                            
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.427732591456!2d121.53785071500522!3d24.98557778399498!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346801fecbb0fecf%3A0xe485bca454f5951e!2zMjMx5paw5YyX5biC5paw5bqX5Y2A5YyX5paw6Lev5LiJ5q61MjE36Jmf!5e0!3m2!1szh-TW!2stw!4v1603247942846!5m2!1szh-TW!2stw" width="100%" height="230" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                            
+                        </div>
+                        
+                    </section>
+                    
+                </div>
+                
+                <div class="clearfloat">
+                </div>
+                
+            </div>
+        </div>
+          
+    </div>
+
+    <div class="wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" style="margin-top:-2.5rem;width:100%;height:12rem;display:block">
+            <path fill="#8f8181" d="M0,224L40,218.7C80,213,160,203,240,213.3C320,224,400,256,480,240C560,224,640,160,720,144C800,128,880,160,960,149.3C1040,139,1120,85,1200,96C1280,107,1360,181,1400,218.7L1440,256L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"></path></svg>
+    <!--footer-->
+	<div class="footer">
+    
+        <!--浮動按鈕區塊--><!--js在common.js內-->
+        <div class="topBtn_area">
+        
+         
+            
+            <!--浮動top鍵-->
+            <div class="topBtn">
+                <a href="#top">
+                    <span>TOP</span>
+                </a>
+            </div>
+            
+        </div>
+        
+    	<div class="wrap">
+        	
+            <!--版腳公司資訊區-->
+        	<div class="footer_company_info">
+                <!-- <span data-name='Company：'>
+                    固士特科技
+                </span>
+                <span data-name='Add.：'>
+                    台北市內湖區成功路四段219號1樓
+                </span> -->
+                <span data-name='Tel：'>
+					0978-373-108
+                </span>
+                <!--<span data-name='Fax：'>
+                    886-2-27475767
+                </span>-->
+                <br />
+                <!-- <span data-name='Website：'>
+                    https://www.fsttaiwan.com/
+                </span> -->
+                <span data-name='Email：'>
+                    <a href="mailto: coolstertw@gmail.com">
+                        karta2215304@gmail.com
+                    </a>
+                </span>
+                
+                <!-- <div class="copyright">
+                    © 2021 <a href="https://www.geneinfo.com.tw/">Greatest Idea Strategy Co.,Ltd</a> All Rights Reversed.
+                </div> -->
+            </div>
+            
+            <!--社群連結-->
+            <div class="community_link_area">
+            	<div class="fCL_link">
+                	<a target="_blank" href="https://www.facebook.com/djitw/">
+                    	<img src="web/images/fb_icon.png" />
+                    </a>
+                </div>
+                <!-- <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/twitter_icon.png" />
+                    </a>
+                </div> -->
+                <!-- <div class="fCL_link">
+                	<a target="_blank" href="https://www.instagram.com/full_quick/">
+                    	<img src="web/images/instagram_icon.png" />
+                    </a>
+                </div>
+                <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/google_icon.png" />
+                    </a>
+                </div>
+                <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/weibo_icon.png" />
+                    </a>
+                </div>
+                <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/wechat_icon.png" />
+                    </a>
+                </div>                
+                <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/youtube_icon.png" />
+                    </a>
+                </div> -->
+                <div class="fCL_link">
+                	<a target="_blank" href="#">
+                    	<img src="web/images/line_icon.png" />
+                    </a>
+                </div>
+                <!-- <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/pinterest_icon.png" />
+                    </a>
+                </div>
+                <div class="fCL_link">
+                	<a href="#">
+                    	<img src="web/images/linkedin_icon.png" />
+                    </a>
+                </div> -->
+            </div>
+            <!-- <svg class="wave" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#8f8181" fill-opacity="1" d="M0,288L60,288C120,288,240,288,360,245.3C480,203,600,117,720,112C840,107,960,181,1080,218.7C1200,256,1320,256,1380,256L1440,256L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+              </svg> -->
+              <!-- <svg class="wave"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                <path fill="#8f8181" fill-opacity="1" d="M0,192L60,170.7C120,149,240,107,360,106.7C480,107,600,149,720,170.7C840,192,960,192,1080,170.7C1200,149,1320,107,1380,85.3L1440,64L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+              </svg> -->
+        </div>
+    </div>
+    
+    <!--移除產品燈箱 modify by karol 20201109 start-->
+    <!--<div class="product_lightBox">
+    	<div class="product_lightBox_bg">
+        </div>
+        <div class="pLb_info_area">
+        	<div class="pLb_close">
+            	X
+            </div>
+            <div class="pLbI_info">
+            	
+                <div class="product_in_top">
+                    
+                    <div class="product_in_img">
+                       <img src="web/index/images/p1.png"  />
+                    </div>
+                    
+                    <div class="product_in_right">
+                        <div class="pIR_tit">
+                            堅果小塔
+                        </div>
+                        
+                        <div class="text_area">
+                            融合法國頂級奶油，重金選用大量嚴選Extra 等級夏威夷豆和開心果，每一顆塔皮裡都塞進飽滿的堅果，每一口都是幸福和滿足，表層再以特製焦糖醬佐以酸酸甜甜蔓越莓乾平衡整體口感，吃起來軟軟的不黏牙，也不會膩口，咬起來口感更討喜，讓人一顆接一顆停不下來~
+                        </div>
+                        
+                        <div class="pITR_original_price">
+                            建議售價：$ 4,000
+                        </div>
+                        
+                        <div class="pITR_price">
+                            特價：<span>$ 2,000</span>
+                        </div>
+                        
+                        <div class="product_selectArea">
+                    
+                            <div class="pITR_quantity">
+                                <select>
+                                    <option>請選擇訂購數量</option>
+                                
+                                    <option value="1">1</option>
+                                
+                                    <option value="2">2</option>
+                                
+                                    <option value="3">3</option>
+                                
+                                    <option value="4">4</option>
+                                
+                                    <option value="5">5</option>
+                                
+                                    <option value="6">6</option>
+                                
+                                    <option value="7">7</option>
+                                
+                                    <option value="8">8</option>
+                                </select>
+                            </div> 
+                            <div class="pITR_btn_area">
+                                <input type="submit" value="加入購物車" class="add" onclick="location='web/cart/cart.html'">
+                            </div>
+                            <div class="clearfloat">
+                            </div>
+                            
+                        </div>
+
+                    </div>
+                    
+                    <div class="clearfloat">
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>-->
+    <!--移除產品燈箱 modify by karol 20201109 start-->
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+</body>
+</html>

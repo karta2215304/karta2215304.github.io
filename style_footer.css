@@ -1,0 +1,291 @@
+/*modify by pekey 20190604*/
+@charset "utf-8";
+/* CSS Document */
+
+/*------------------------------------------CSS Setting Start-------------------------------*/
+				
+/*================*/
+/*-- 浮動top鍵 --*/
+/*================*/
+/*modify by pekey 20180223 start*/
+.topBtn_area{
+	position:fixed;
+	right:14px;
+	bottom:0px;
+	z-index: 1000;
+	transform: scale(0.84);
+	transition:0.3s ease all;
+}
+	/*浮動按鍵*/
+	.topBtn_list {
+		margin: 7px 0px;
+		position: relative;
+	}
+		
+		.topBtn_list a {
+			display:block;
+			transition:0.3s ease all;
+			text-decoration:none;
+			font-size:12px;
+			line-height: 12px;
+			text-align:center;
+			width:50px;
+			height:50px;
+			box-sizing:border-box;
+			border-radius:100%;
+			color:#674490;
+			background: #fff;
+			box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+			position:relative;
+		}
+		
+		/*modify by pekey 20190125 start*/
+		/*line-綠色*/
+		.topBtn_list.green a{
+			background-color: #00b900;
+		}
+		/*fb-藍色*/
+		.topBtn_list.blue a{
+			background-color: #4267b2;
+		}
+		
+		/*購物車-ci*/
+		.topBtn_list.cart a{
+			background-color: #4687b1;
+		}
+		/*modify by pekey 20190125 end*/
+			
+			.topBtn_list a i {
+				font-size: 40px;
+				margin: -3px 0px -9px;
+			}
+			.topBtn_list img{
+				width:35px;
+				height: auto;
+				position:absolute;
+				top:8px;
+				right:7px;
+			}
+				/*hover*/
+				.topBtn_list:hover {
+				}
+					.topBtn_list:hover a {
+						box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+					}
+					
+			/*標籤說明*/		
+			.tab_description{
+				display: none;
+				position: absolute;
+				left: -95px;
+				top: 50%;
+				margin: -16px 0px 0px;
+				background: rgba(0,0,0,0.6);
+				color: #fff;
+				padding: 10px 10px;
+				font-size: 13px;
+    			transition: 0.3s ease all;
+				width: 70px;
+				text-align: center;
+			}
+			/*hover*/
+			.topBtn_list:hover .tab_description{
+				display: block;
+    			transition: 0.3s ease all;
+			}
+			
+
+
+/*回最上面*/
+.topBtn {
+	margin:7px 0px;/*
+	position: relative;*/
+}
+	.topBtn a {
+		display:block;
+		text-align:center;
+		box-sizing:border-box;
+		width: 50px;
+		height: 50px;
+		border: solid 2px #4c4944;
+		position:relative;
+		text-decoration:none;
+		transition:0.3s ease all;
+		border-radius:100%;
+		background:#fff;
+		padding: 25px 0px 0px;
+		color:#4c4944;
+	}
+		.topBtn a:before {
+			position:absolute;
+			content:'';
+			border-bottom: solid 12px #4c4944;
+			border-left: solid 8px rgba(0,0,0,0);
+			border-right: solid 8px rgba(0,0,0,0);
+			top: 8px;
+			left: 15px;
+		}
+		.topBtn a span {
+			font-size:12px;
+			display:block;
+		}
+			/*hover*/
+			.topBtn a:hover {
+				border-color:#fff;
+				box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+				color:#c32126;
+			}
+				.topBtn a:hover:before {
+					border-bottom: solid 12px #c32126;
+				}	
+						.pcMember_Quantity {
+							border-radius:100%;
+							color:#fff;
+							text-align:center;
+							font-size:12px;
+							width:22px;
+							line-height:22px;
+							/*background:#9fa0a0;*/ /*modify by karol 20200203*/
+							background:#4c4944;
+							display:inline-block;
+     						vertical-align: middle;	
+							letter-spacing:0px;
+							top: -5px;
+							/*right: -15px;*/ /*modify by karol 20200203*/
+							right: -5px;
+							transition: 0.3s ease all;
+							position: absolute;
+						}
+						
+						
+/*-------footer----------------------------------------------------------------------------*/
+.footer {
+	/*background:#012a26;*/
+	background: #8f8181;
+	 padding:0px 0px 20px; 
+	/* margin-top: 70px; */
+
+}
+	/*版腳公司資訊區*/
+	.footer_company_info {
+		text-align:center;
+		z-index: 5;
+	}
+		.footer_company_info span {
+			display:inline-block;
+			position:relative;
+			font-size: 18px;
+			line-height: 25px;
+			color:#fff;
+			padding:0px 6px;
+			font-family: 'Gloria Hallelujah', cursive;
+		}
+			.footer_company_info span:before {
+				content:attr(data-name);
+			}
+			.footer_company_info span:after {
+				position:absolute;
+				content:'';
+				width:1px;
+				height:16px;
+				background:#fff;
+				left: -3px;
+				top: 3px;
+				display:none;
+			}
+				.footer_company_info span:first-of-type:after, .footer_company_info span:nth-of-type(4):after {
+					display:none;
+				}
+			.footer_company_info span a {
+				text-decoration:none;
+				color:#fff;
+			}
+			
+	/*copyright*/
+	.copyright {
+		font-size: 12px;
+		line-height: 22px;
+		color: #fff;
+		padding: 0px 6px;
+	}
+		.copyright a {
+			text-decoration:none;
+			color:#fff;
+		}
+				@media (max-width: 955px){
+					/*版腳公司資訊區*/
+					.footer_company_info br {
+						display: none;
+					}
+						.footer_company_info span:first-of-type:after, .footer_company_info span:nth-of-type(4):after {
+							/*display:block;*/
+						}
+				}
+					@media (max-width: 768px){
+						/*版腳公司資訊區*/
+						/* .footer_company_info {
+							text-align:left;
+						} */
+					}
+						@media (max-width: 425px){
+							/*版腳公司資訊區*/
+							.footer_company_info span {
+								/* text-indent: -75px; */
+								padding: 0px 0px 0px 0px;
+								font-size: 12px;
+								line-height: 24px;
+								letter-spacing: 0.1px;
+								display:block;
+							}
+								.footer_company_info span:before {
+									width: auto;
+									display: inline-block;
+									/* text-indent: 0px; */
+								}
+								.footer_company_info span:after, .footer_company_info span:first-of-type:after, .footer_company_info span:nth-of-type(4):after {
+									display:none;
+								}
+							/*copyright*/
+							.copyright {
+								padding: 8px 0px 0px;
+							}
+						}
+						
+	/*社群連結*/
+	.community_link_area {
+		text-align:center;
+		font-size:0px;
+		padding: 8px 0px 0px;
+		margin: 0px -10px;
+	}
+		.fCL_link {
+			display:inline-block;
+			vertical-align:top;
+			width:40px;
+			padding:10px;
+		}
+			.fCL_link a {
+				display:block;
+				transition:0.3s ease all;
+				text-decoration:none;
+				border-radius: 100%;
+				background:#fff;
+				padding: 7px;
+			}
+				.fCL_link a img {
+					width:100%;
+					transition:0.3s ease all;
+				}
+					.fCL_link a:hover {
+						opacity:0.8;
+					}
+
+	/* wave */
+
+	.wave{
+		/* position: absolute;
+		bottom: 0;
+		left: 0;
+		 z-index: -1; */
+		
+	}
